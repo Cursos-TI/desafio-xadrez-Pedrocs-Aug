@@ -34,16 +34,16 @@ int main()
     // Movimentação do Cavalo
     printf("\nMovimentação do Cavalo:\n");
     // O Cavalo tem um movimento especial em "L", então vamos simular isso com um loop DO-While para mostrar a movimentação única do Cavalo. Ele se move duas casas em uma direção e depois uma casa perpendicularmente.
-    for (Cavalo = 0; Cavalo < 1; Cavalo++)
+    while (Cavalo < 1)
     {
-        int i = 0;
-        while (i < 2)
+        for (int i = 0; i < 2; i++)
         {
-            printf("Baixo\n");
-            i++;
+            printf("Cima\n");
         }
-        printf("Esquerda\n");
+        printf("Direita\n");
+        Cavalo++;
     }
+    
 
     return 0;
 }
