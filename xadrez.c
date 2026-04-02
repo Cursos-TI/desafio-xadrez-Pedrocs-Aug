@@ -1,49 +1,85 @@
 #include <stdio.h>
 
+// Função para movimentar o bispo
+void MovBispo(int Mov)
+{   // Verifica se ainda há movimentos restantes para o bispo
+    if (Mov > 0)
+    {   // Exibe o movimento do bispo para cima e para a direita
+        if (Mov > 0)
+        {   // Loop externo para movimentos verticais
+            for (int v = 0; v < 1; v++)
+            {   // Loop interno para movimentos horizontais
+                printf("Cima\n");
+                for (int h = 0; h < 1; h++)
+                {
+                    printf("Direita\n");
+                }
+                
+            }
+            
+        }
+        
+        // Chama a função recursivamente para continuar o movimento do bispo
+        MovBispo(Mov - 1);
+    }
+}
+
+// Função para movimentar a torre
+void MovTorre(int Mov)
+{
+    if (Mov > 0)
+    {
+        printf("Direita\n");
+        // Chama a função recursivamente para continuar o movimento da torre
+        MovTorre(Mov - 1);
+    }
+}
+
+void MovRainha(int Mov)
+{
+    if (Mov > 0)
+    {
+        printf("Direita\n");
+        // Chama a função recursivamente para continuar o movimento da rainha
+        MovRainha(Mov - 1);
+    }
+}
+
 // Função principal do programa
 int main()
 {
 
     // Variáveis para controlar as movimentações das peças
-    int Bispo = 0, Torre = 0, Rainha = 0, Cavalo = 0;
+    int Bispo = 5, Torre = 5, Rainha = 8, Cavalo = 1;
 
-    // Movimentação do Bispo
-    printf("Movimentação do Bispo:\n");
-    while (Bispo < 5)
-    {
-        printf("Cima\n");
-        printf("Direita\n");
-        Bispo++;
-    }
+    // Exibe os movimentos de cada peça
+    printf("Movimentos do Bispo:\n");
+    MovBispo(Bispo);
 
-    // Movimentação da Torre
-    printf("\nMovimentação da Torre:\n");
-    do
-    {
-        printf("Direita\n");
-        Torre++;
-    } while (Torre < 5);
+    // Exibe os movimentos da torre e da rainha
+    printf("\nMovimentos da Torre:\n");
+    MovTorre(Torre);
 
-    // Movimentação da Rainha
-    printf("\nMovimentação da Rainha:\n");
-    for (Rainha; Rainha < 8; Rainha++)
-    {
-        printf("Esquerda\n");
-    }
+    // Exibe os movimentos da rainha
+    printf("\nMovimentos da Rainha:\n");
+    MovRainha(Rainha);
 
-    // Movimentação do Cavalo
-    printf("\nMovimentação do Cavalo:\n");
-    // O Cavalo tem um movimento especial em "L", então vamos simular isso com um loop DO-While para mostrar a movimentação única do Cavalo. Ele se move duas casas em uma direção e depois uma casa perpendicularmente.
-    while (Cavalo < 1)
+    // Usa um loop complexo para exibir os movimentos do cavalo, alternando entre cima e direita
+    for (int i = 0, j = 2; i < Cavalo && j > Cavalo; i++, j--)
     {
-        for (int i = 0; i < 2; i++)
+        printf("\nMovimentos do Cavalo:\n");
+        for (int k = 0; k < 3; k++)
         {
-            printf("Cima\n");
+            if (k < 2)
+            {
+                printf("Cima\n");
+            }
+            else
+            {
+                printf("Direita\n");
+            }
         }
-        printf("Direita\n");
-        Cavalo++;
     }
-    
 
     return 0;
 }
